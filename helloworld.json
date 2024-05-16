@@ -1,0 +1,58 @@
+{
+	"sheets": [
+		{
+			"name": "HelloWorld",
+			"columns": [
+				{
+					"typeStr": "1",
+					"name": "Name"
+				},
+				{
+					"typeStr": "3",
+					"name": "X"
+				},
+				{
+					"typeStr": "3",
+					"name": "Y",
+					"display": null
+				},
+				{
+					"typeStr": "1",
+					"name": "Char",
+					"display": null
+				}
+			],
+			"lines": [
+				{
+					"Name": "HelloWorld",
+					"X": 2,
+					"Y": 4,
+					"Char": "@"
+				},
+				{
+					"Name": "Bigasdev",
+					"X": 3,
+					"Y": 2,
+					"Char": "!"
+				},
+				{
+					"Name": "Mandinha",
+					"X": 1,
+					"Y": 4,
+					"Char": "%"
+				}
+			],
+			"separators": [],
+			"props": {}
+		},
+		{
+			"name": "Test",
+			"columns": [],
+			"lines": [],
+			"separators": [],
+			"props": {}
+		}
+	],
+	"customTypes": [],
+	"compress": false
+}
