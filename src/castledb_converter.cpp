@@ -24,6 +24,8 @@ const std::vector<CastleData> CastleDBConverter::extract_data(const std::string 
                 castleData.name = line["Name"];
 
                 for(auto& key : keys){
+                    if(line[key].is_null())continue;
+
                     if(line[key].is_number()){
                         castleData.data[key] = std::to_string(line[key].get<int>());
                         continue;
