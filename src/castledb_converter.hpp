@@ -20,6 +20,7 @@ public:
     ~CastleDBConverter();
 
     const std::vector<CastleData> extract_data(const std::string sheetName, std::vector<std::string> keys);
+    const CastleData extract_data_from_name(const std::string sheetName, const std::string name, std::vector<std::string> keys);
     bool update(const std::string filename);
 private:
     json data;
