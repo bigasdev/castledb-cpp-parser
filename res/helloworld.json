@@ -26,20 +26,20 @@
 				{
 					"Name": "HelloWorld",
 					"X": 2,
-					"Y": 4,
-					"Char": "@"
+					"Y": 8,
+					"Char": "8"
 				},
 				{
 					"Name": "Bigasdev",
-					"X": 3,
-					"Y": 2,
+					"X": 5,
+					"Y": 6,
 					"Char": "!"
 				},
 				{
-					"Name": "Mandinha",
-					"X": 1,
-					"Y": 4,
-					"Char": "%"
+					"Name": "Hot Reload!",
+					"X": 5,
+					"Y": 2,
+					"Char": "&"
 				}
 			],
 			"separators": [],
