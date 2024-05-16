@@ -1,24 +1,24 @@
 # CastleDB-cpp-parser
 
-_Quickly parse your castle db to use in your cpp codebade, it supports Hot Reload!_
+_Quickly parse your CastleDB for use in your C++ codebase. It supports hot reload!_
 <img src="media/Code_vr3EVVBErD.gif">
 
 ## Usage
 
-Add the files inside the **.src/** folder to your codebase and call the constructor to grab the data with the CastleDBConverter class
+Include the files located in the **.src/** folder in your codebase, then instantiate the CastleDBConverter class constructor to retrieve the data.
 
 ```
 CastleDBConverter converter("res/helloworld.json");
 ```
 
-You can then extract your data, a nice feature is that you can grab only the fields you need
+Then extract your data, a nice feature is that you can grab only the fields you need.
 
 ```
                                 //sheet name   //fields
 data_db = converter.extract_data("HelloWorld", {"Name", "X", "Y", "Char"});
 ```
 
-You can use the update method to check for updates in the file for hot reload support
+Use the update method to check for updates in the file for hot reload support
 ```
 if(converter.update("res/helloworld.json")){
     //your code
