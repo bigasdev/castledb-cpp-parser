@@ -5,6 +5,8 @@ CastleDBConverter::CastleDBConverter(const std::string filename)
     std::ifstream f(filename);
     data = json::parse(f);
 
+    update_data();
+
     m_last_edited = std::to_string(std::filesystem::last_write_time(filename).time_since_epoch().count());
 }
 
@@ -85,8 +87,45 @@ bool CastleDBConverter::update(const std::string filename)
         std::ifstream f(filename);
         data = json::parse(f);
 
+        update_data();
+
         m_last_edited = std::to_string(std::filesystem::last_write_time(filename).time_since_epoch().count());
         return true;
     }
     return false;
+}
+
+void CastleDBConverter::update_data()
+{
+    for(auto& sheet : data["sheets"]){
+        for(auto& line : sheet["lines"]){
+            CastleData castleData;
+            castleData.name = line["Name"];
+
+            for(auto& key : line.items()){
+                if(key.value().is_null())continue;
+
+                if(key.value().is_number()){
+                    castleData.data[key.key()] = std::to_string(key.value().get<int>());
+                    continue;
+                }
+                if(key.value().is_boolean()){
+                    castleData.data[key.key()] = std::to_string(key.value().get<bool>());
+                    continue;
+                }
+
+                castleData.data[key.key()] = key.value();
+            }
+
+            m_cache[castleData.name] = castleData;
+        }
+    }
+    //debug std 
+    for(auto& [name, data] : m_cache){
+        std::cout << name << std::endl;
+        for(auto& [key, value] : data.data){
+             std::cout << key << " : " << value << std::endl;
+        }
+        std::cout << "-" << std::endl;
+    }
 }

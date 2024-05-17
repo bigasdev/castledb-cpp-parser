@@ -23,6 +23,10 @@ public:
     const CastleData extract_data_from_name(const std::string sheetName, const std::string name, std::vector<std::string> keys);
     bool update(const std::string filename);
 private:
+    void update_data();
+
     json data;
     std::string m_last_edited;
+
+    std::unordered_map<std::string, CastleData> m_cache;
 }; 
